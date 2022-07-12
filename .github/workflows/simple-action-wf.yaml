@@ -11,4 +11,4 @@ jobs:
         with:
           who-to-greet: Artyom
       - name: Log greetng time
-        run: echo ${{ steps.greet.outputs.time }}
+        run: echo "${{ steps.greet.outputs.time }}"

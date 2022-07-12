@@ -3,22 +3,11 @@ on: [push]
 jobs:
   run-shell-command:
     runs-on: ubuntu-latest
-    name: run-echo-command
+    name: Run Shell Command
     steps:
       - name: Echo simple string
         run: echo "This is a simple test string"
-  zap_scan:
-    runs-on: ubuntu-latest
-    name: scan-webapplication
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          ref: main
-      - name: ZAP Scan
-        uses: zaproxy/action-baseline@v0.7.0
-        with:
-          docker_name: 'owasp/zap2docker-stable'
-          target: 'http://testphp.vulnweb.com'
-          rules_file_name: '.zap/rules.tsv'
-          cmd_options: '-a'
+      - name: Run multiline commands
+        run: | 
+          node -v
+          npm -v

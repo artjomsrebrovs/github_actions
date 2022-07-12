@@ -1,0 +1,14 @@
+name: Run simple action
+on: [push]
+jobs:
+  run-github-action:
+    runs-on: ubuntu-latest
+    name: Run Greeting Action
+    steps:
+      - name: Pring a greeting to
+        id: greet
+        uses: actions/hello-world-javascript-action@v1.1
+        with:
+          who-to-greet: Artyom
+      - name: Log greetng time
+        run: echo ${{ steps.greet.outputs.time }}

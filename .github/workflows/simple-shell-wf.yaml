@@ -8,14 +8,14 @@ jobs:
       - name: Echo simple string
         run: echo "This is a simple test string"
       - name: Run multiline commands
-        run: | 
+        run: |
           node -v
           npm -v
       - name: Run python command
-        run: | 
+        run: |
           import platform
           print(platform.processor())
-        shell: python  
+        shell: python
   run-windows-command:
     runs-on: windows-latest
     name: Run Windows Command

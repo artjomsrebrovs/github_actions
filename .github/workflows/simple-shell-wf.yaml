@@ -1,4 +1,4 @@
-name: Run simple shell command and Do A Security scan
+name: Run simple shell commands
 on: [push]
 jobs:
   run-shell-command:
@@ -19,6 +19,7 @@ jobs:
   run-windows-command:
     runs-on: windows-latest
     name: Run Windows Command
+    needs: ["run-shell-command"]
     steps:
       - name: Get Directory Powershell
         run: Get-Location

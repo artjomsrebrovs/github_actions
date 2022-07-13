@@ -11,6 +11,8 @@ jobs:
         run: |
           node -v
           npm -v
+          pwd
+          ls
       - name: Run python command
         run: |
           import platform

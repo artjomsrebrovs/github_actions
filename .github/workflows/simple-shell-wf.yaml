@@ -15,6 +15,9 @@ jobs:
           npm -v
           pwd
           ls
+          env
+          echo ${{ github }}
+          echo ${{ steps }}
       - name: Run python command
         run: |
           import platform

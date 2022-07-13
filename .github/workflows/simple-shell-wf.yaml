@@ -1,5 +1,10 @@
 name: Run simple shell commands
-on: [push]
+on: 
+  push:
+  #schedule:
+  # - cron: "0/5 * * * *"
+  repository_dispatch:
+    types: [build]
 jobs:
   run-shell-command:
     runs-on: ubuntu-latest
@@ -16,8 +21,7 @@ jobs:
           pwd
           ls
           env
-          echo ${{ github }}
-          echo ${{ steps }}
+          echo ${{ github.event.client_payload.env }}
       - name: Run python command
         run: |
           import platform

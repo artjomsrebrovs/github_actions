@@ -17,7 +17,7 @@ jobs:
           git checkout main
           git branch --set-upstream-to=origin/main
           git pull
-          la -a
+          ls -a
           echo $RANDON >> random.txt
           ls -a
           git add *

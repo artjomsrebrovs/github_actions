@@ -15,7 +15,7 @@ jobs:
           git config --global user.name "git-bot"
           git fetch
           git checkout main
-          git branch --set-upstrem-to=orogin/main
+          git branch --set-upstrem-to=origin/main
           git pull
           la -a
           echo $RANDON >> random.txt

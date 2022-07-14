@@ -21,7 +21,7 @@ jobs:
           
       - name: Push random file
         run: |
-          echo $RANDON >> random.txt
+          echo $RANDOM >> random.txt
           ls -a
           git add *
           git commit -m "random file change"

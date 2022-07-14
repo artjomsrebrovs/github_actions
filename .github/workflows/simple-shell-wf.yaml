@@ -9,16 +9,24 @@ on:
   # - cron: "0/5 * * * *"
   repository_dispatch:
     types: [build]
+
+env:
+  WF_SCOPE_ENV: This is a global scope variable 
+
 jobs:
   run-shell-command:
     runs-on: ubuntu-latest
     name: Run Shell Command
+    env:
+      JOB_SCOPE_ENV: This is a job scope variable
     steps:
       - name: Echo simple string
         run: echo "This is a simple test string"
       - name: Checkout the repo
         uses: actions/checkout@v3
       - name: Run multiline commands
+        env: 
+          STEP_SCOPE_ENV: This is a step scope variable
         run: |
           node -v
           npm -v
@@ -26,11 +34,15 @@ jobs:
           ls
           env
           echo ${{ github.event.client_payload.env }}
+          echo WF_SCOPE_ENV ${ WF_SCOPE_ENV }
+          echo JOB_SCOPE_ENV ${ JOB_SCOPE_ENV }
+          echo STEP_SCOPE_ENV ${ STEP_SCOPE_ENV }
       - name: Run python command
         run: |
           import platform
           print(platform.processor())
         shell: python
+  
   run-windows-command:
     runs-on: windows-latest
     name: Run Windows Command

@@ -12,6 +12,7 @@ on:
 
 env:
   WF_SCOPE_ENV: This is a global scope variable 
+  WF_SCOPE_ENV_ENCR: ${{ secrets.WORKFLOW_SECRET }}
 
 jobs:
   run-shell-command:
@@ -37,6 +38,7 @@ jobs:
           echo "WF_SCOPE_ENV ${WF_SCOPE_ENV}"
           echo "JOB_SCOPE_ENV ${JOB_SCOPE_ENV}"
           echo "STEP_SCOPE_ENV ${STEP_SCOPE_ENV}"
+          echo "WF_SCOPE_ENV_ENCR ${WF_SCOPE_ENV_ENCR}"
       - name: Run python command
         run: |
           import platform

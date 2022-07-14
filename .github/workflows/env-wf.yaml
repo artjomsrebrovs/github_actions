@@ -15,3 +15,11 @@ jobs:
           git config --global user.name "git-bot"
           git fetch
           git checkout main
+          git branch --set-upstrem-to=orogin/main
+          git pull
+          la -a
+          echo $RANDON >> random.txt
+          ls -a
+          git add *
+          git commit -m "random file change"
+          git push

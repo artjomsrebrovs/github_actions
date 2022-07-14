@@ -1,6 +1,10 @@
 name: Run simple shell commands
 on: 
   push:
+    branches: 
+      - master
+      - main
+      - 'feature/**'
   #schedule:
   # - cron: "0/5 * * * *"
   repository_dispatch:

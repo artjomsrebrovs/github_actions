@@ -34,9 +34,9 @@ jobs:
           ls
           env
           echo ${{ github.event.client_payload.env }}
-          echo WF_SCOPE_ENV ${ WF_SCOPE_ENV }
-          echo JOB_SCOPE_ENV ${ JOB_SCOPE_ENV }
-          echo STEP_SCOPE_ENV ${ STEP_SCOPE_ENV }
+          echo "WF_SCOPE_ENV ${WF_SCOPE_ENV}"
+          echo "JOB_SCOPE_ENV ${JOB_SCOPE_ENV}"
+          echo "STEP_SCOPE_ENV ${STEP_SCOPE_ENV}"
       - name: Run python command
         run: |
           import platform

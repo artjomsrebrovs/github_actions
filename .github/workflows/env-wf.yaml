@@ -44,3 +44,16 @@ jobs:
             "body": "This issue was automatically created by the GitHub Action workflow **${{ github.workflow }}**. \n\n The commit hash was: _${{ github.sha }}_."
             }' \
           --fail        
+
+  decrypt:
+    runs-on: ubuntu-latest
+    name: Decrypt GPG file
+    steps:
+      - uses: actions/checkoyt@v1
+      - name: Decrypt file
+        run: gpg --quiet --batch --yes --decrypt --passphrase="$PASSPHRASE" --output $HOME/secret.txt secret.gpg
+        env:
+          PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+
+      - name: Pring file contents
+        run: cat $HOME/secret.txt

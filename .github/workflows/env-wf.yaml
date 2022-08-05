@@ -49,7 +49,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Decrypt GPG file
     steps:
-      - uses: actions/checkoyt@v1
+      - uses: actions/checkout@v1
       - name: Decrypt file
         run: gpg --quiet --batch --yes --decrypt --passphrase="$PASSPHRASE" --output $HOME/secret.txt secret.gpg
         env:

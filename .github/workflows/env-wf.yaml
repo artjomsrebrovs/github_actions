@@ -46,7 +46,7 @@ jobs:
           --fail        
 
   decrypt:
-    if: github.event_name = 'push'
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     name: Decrypt GPG file
     steps:

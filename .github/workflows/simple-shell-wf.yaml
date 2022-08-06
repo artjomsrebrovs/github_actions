@@ -17,6 +17,7 @@ env:
 jobs:
   run-shell-command:
     runs-on: ubuntu-latest
+    continue-on-error: true
     name: Run Shell Command
     env:
       JOB_SCOPE_ENV: This is a job scope variable
@@ -49,6 +50,7 @@ jobs:
     runs-on: windows-latest
     name: Run Windows Command
     needs: ["run-shell-command"]
+    if: always()
     steps:
       - name: Get Directory Powershell
         run: Get-Location

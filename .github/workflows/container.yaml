@@ -26,7 +26,7 @@ jobs:
       - name: Run script
         uses: docker://node:latest
         with:
-          entrypoint: ls -la
+          entrypoint: "/bin/ls -la"
       - uses: actions/checkout@v1
       - name: Run script
         uses: docker://node:latest

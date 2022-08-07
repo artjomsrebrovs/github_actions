@@ -11,7 +11,7 @@ jobs:
         run: |
           node -v
           cat /etc/os-release
-          hotname
+          hostname
       - name: Step with container
         uses: docker://node:latest
         with:

@@ -7,7 +7,18 @@ jobs:
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest]
         node_version: [6, 8, 10]
+        include:
+          - os: windows-latest
+            node_version: 10
+            is_win_10: "true"
+        exclude:
+          - os: macos-latest
+            node_version: 6
+          - os: ubuntu-latest
+            node_version: 8
     runs-on: ${{ matrix.os }}
+    env:
+      IS_WIN_10: ${{ matrix.is_win_10 }}
     steps:
       - name: Log default node version
         run: node -v
@@ -15,4 +26,6 @@ jobs:
         with:
           node-version: ${{ matrix.node_version }}
       - name: Log installed node version
-        run: node -v
+        run: |
+          node -v
+          echo $IS_WIN_10

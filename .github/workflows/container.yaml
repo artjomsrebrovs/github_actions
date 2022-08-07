@@ -12,3 +12,19 @@ jobs:
           node -v
           cat /etc/os-release
           hotname
+      - name: Step with container
+        uses: docker://node:latest
+        with:
+          entrypoint: "/bin/echo"
+          args: "Entry text"
+      - name: Long node versiob in step
+        uses: docker://node:latest
+        with:
+          entrypont: "/usr/local/bin/node"
+          args: "-v"
+      - uses: actions/checkout@v1
+      - name: Run script
+        uses: docker://node:latest
+        with:
+          entrypoint: ./scrypt.sh
+          args: "Script text"

@@ -1,0 +1,14 @@
+name: Greeter
+author: Artjoms Rebrovs
+description: A greeter action
+inputs:
+  who-to-greet:
+    description: "Who to greet"
+    required: true
+    default: Artjoms
+outputs:
+  time:
+    description: "The greeting time"
+runs:
+  using: "node12"
+  main: "dist/index.js"

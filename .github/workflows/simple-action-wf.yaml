@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Run Greeting Action
     steps:
-      - name: Pring a greeting to
+      - name: Print a greeting to
         id: greet
         uses: actions/hello-world-javascript-action@v1.1
         with:
